@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "my_bucket" {
-  name     = "bkt-demo-000"
+  name     = "bkt-demo-4742"
   location = "US-CENTRAL1"
   project  = "majestic-post-487306-p4"
 
