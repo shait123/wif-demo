@@ -1,7 +1,7 @@
 name: 'Terraform Destroy'
 
 on:
-  workflow_dispatch:   # Manual trigger only
+  workflow_dispatch:   
 
 permissions:
   contents: read
@@ -17,11 +17,11 @@ jobs:
         shell: bash
 
     steps:
-      # 1️⃣ Checkout repo
+      
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 2️⃣ Authenticate using Workload Identity Federation
+     
       - id: auth
         name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
@@ -29,14 +29,13 @@ jobs:
           workload_identity_provider: 'projects/771636091678/locations/global/workloadIdentityPools/github-demo-pool/providers/github'
           service_account: 'github-wif@majestic-post-487306-p4.iam.gserviceaccount.com'
 
-      # 3️⃣ Setup Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
-      # 4️⃣ Terraform Init (connect to backend bucket)
+     
       - name: Terraform Init
         run: terraform init
 
-      # 5️⃣ Terraform Destroy
+
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
