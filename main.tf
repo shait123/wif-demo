@@ -1,4 +1,4 @@
-resource "google_storage_bucket" "my-bucket" {
+resource "google_storage_bucket" "my_bucket" {
   name          = "bkt-demo-000"
   location      = "us-central1"
   project = "My Project 4099"
