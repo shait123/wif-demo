@@ -1,7 +1,10 @@
 resource "google_storage_bucket" "my_bucket" {
-  name          = "bkt-demo-000"
-  location      = "us-central1"
-  project = "My Project 4099"
-  force_destory = true
-  public_access_prevention = "enforced" 
+  name     = "bkt-demo-000"
+  location = "US-CENTRAL1"
+  project  = "majestic-post-487306-p4"
+
+  force_destroy = true
+
+  public_access_prevention = "enforced"
+  uniform_bucket_level_access = true
 }
